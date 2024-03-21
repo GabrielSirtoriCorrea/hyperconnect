@@ -1,0 +1,106 @@
+.stack-pane {
+    -fx-background-color: #6E6E6E; /* Cor de fundo do ScrollPane */
+}
+.scroll-pane .viewport{
+    -fx-background-color: #6E6E6E; /* Cor de fundo do ScrollPane */
+}
+
+.label-title{
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.label-text{
+    -fx-text-fill: white;
+    -fx-font-family: Garamound;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px; /* Define uma sombra para criar a borda em volta das letras */
+}
+
+.label-backgrund{
+    -fx-background-color: #336699;
+    -fx-alignment: center; 
+    -fx-background-border-radius:10px;
+    -fx-text-fill: white;
+    -fx-font-family: Garamound;
+    -fx-background-radius:10px;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px; /* Define uma sombra para criar a borda em volta das letras */
+}
+
+.combo-box-base{
+    -fx-background-color:#336699;
+}
+
+.combo-box-base .text{
+    -fx-fill: #ffffff;
+    -fx-font-size: 12px;
+    -fx-font-weight: BOLD;
+}
+
+.combo-box-popup .list-cell{
+    -fx-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: BOLD;
+    -fx-background-color:#336699;
+}
+
+.combo-box-popup .list-cell:filled:hover{
+    -fx-fill: #336699;
+    -fx-font-size: 14px;
+    -fx-font-weight: BOLD;
+    -fx-background-color: #6E6E6E;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #ffffff; /* Cor de fundo da seta */
+}
+
+.text-field {
+    -fx-background-color:#336699;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.473);    
+}
+
+.image-view-logo{
+    -fx-background-radius: 10px; /* Define o raio das bordas */
+    -fx-border-radius: 10px; /* Define o raio das bordas */
+    -fx-background-color: #ffffff; /* Cor de fundo (opcional) */
+    -fx-border-color: #000000; /* Cor da borda (opcional) */
+    -fx-border-width: 2px; 
+}
+
+.check-box {
+    -fx-font-size: 16px;
+    -fx-font-weight: BOLD;
+    -fx-text-fill: white;
+    -fx-font-family: Garamound;
+}
+
+.check-box .box{
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10;
+    -fx-font-size: 14px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #336699;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #ffffff;
+    -fx-shape: "M1.73,12.91 8.1,19.28 22.79,4.59 22.79,1.59 8.1,16.28 1.73,9.91";
+}
+
+.button{
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: BOLD;
+    -fx-background-color: #336699;
+    -fx-border-color: white;
+    -fx-border-radius:10;
+    -fx-background-radius:10;
+
+}
