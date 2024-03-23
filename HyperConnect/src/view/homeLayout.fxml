@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
 
-
 <StackPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #6E6E6E;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label styleClass="label-title" stylesheets="@Styles.css" text="HYPERCONNECT" StackPane.alignment="TOP_CENTER">
@@ -34,7 +33,7 @@
       </Label>
       <ImageView fx:id="imgComunicationOn" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
          <image>
-            <Image url="@../../../Resources/ON%20label%20high.png" />
+            <Image url="@Resources/ON%20label%20high.png" />
          </image>
          <StackPane.margin>
             <Insets right="35.0" top="25.0" />
@@ -42,7 +41,7 @@
       </ImageView>
       <ImageView fx:id="imgComunicationOff" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
          <image>
-            <Image url="@../../../Resources/OFF%20label%20low.png" />
+            <Image url="@Resources/OFF%20label%20low.png" />
          </image>
          <StackPane.margin>
             <Insets right="10.0" top="25.0" />
@@ -50,7 +49,7 @@
       </ImageView>
       <ImageView fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
          <image>
-            <Image url="@../../../Resources/Logo.png" />
+            <Image url="@Resources/Logo.png" />
          </image>
          <StackPane.margin>
             <Insets left="10.0" top="10.0" />
