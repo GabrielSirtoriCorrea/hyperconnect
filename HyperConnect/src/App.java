@@ -18,7 +18,7 @@ public class App extends Application{
         FXMLLoader fxmlLayout = new FXMLLoader(getClass().getResource("/view/homeLayout.fxml"));
         Parent root = fxmlLayout.load();
         Scene scene = new Scene(root);
-        Image icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
+        Image icon = new Image(getClass().getResourceAsStream("add/view/Resources/Icon.png"));
 
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("HYPERCONNECT");
