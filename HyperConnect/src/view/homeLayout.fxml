@@ -95,22 +95,22 @@
             <Insets bottom="20.0" left="110.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="bntSend" mnemonicParsing="false" onAction="#btnSendAction" prefHeight="52.0" prefWidth="103.0" text="ENVIAR" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="bntSend" mnemonicParsing="false" onAction="#btnSendAction" prefHeight="60.0" prefWidth="120.0" text="ENVIAR" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="30.0" top="120.0" />
          </StackPane.margin>
       </Button>
-      <Button fx:id="btnReset" mnemonicParsing="false" prefHeight="52.0" prefWidth="103.0" text="RESET" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnResetAction" prefHeight="60.0" prefWidth="120.0" text="RESET" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="30.0" top="200.0" />
          </StackPane.margin>
       </Button>
-      <Button fx:id="btnPreFlowtTest" mnemonicParsing="false" prefHeight="52.0" prefWidth="103.0" text="TESTE PRE FLOW" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="btnPreFlowtTest" mnemonicParsing="false" onAction="#btnPreFlowTestAction" prefHeight="60.0" prefWidth="120.0" text="TESTE PRE FLOW" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="30.0" top="280.0" />
          </StackPane.margin>
       </Button>
-      <Button fx:id="btnFlowTest" mnemonicParsing="false" prefHeight="52.0" prefWidth="103.0" text="TESTE FLOW" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="btnFlowTest" mnemonicParsing="false" onAction="#btnFlowTestAction" prefHeight="60.0" prefWidth="120.0" text="TESTE FLOW" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="30.0" top="360.0" />
          </StackPane.margin>
@@ -122,12 +122,7 @@
       </Label>
       <Label fx:id="lblCurrent" prefHeight="42.0" prefWidth="54.0" styleClass="label-backgrund" text="30A" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
-            <Insets bottom="135.0" left="120.0" />
-         </StackPane.margin>
-      </Label>
-      <Label styleClass="label-text" text="PRE FLOW PROT:" StackPane.alignment="BOTTOM_CENTER">
-         <StackPane.margin>
-            <Insets bottom="195.0" right="150.0" />
+            <Insets bottom="90.0" left="50.0" />
          </StackPane.margin>
       </Label>
       <Label fx:id="lblPreFlowProt" prefHeight="38.0" prefWidth="173.0" styleClass="label-backgrund" text="PRESSAO PFP" StackPane.alignment="BOTTOM_CENTER">
@@ -150,25 +145,30 @@
             <Insets bottom="20.0" left="160.0" />
          </StackPane.margin>
       </Label>
-      <Label styleClass="label-text" text="FLOW PROT:" StackPane.alignment="BOTTOM_CENTER">
+      <Label styleClass="label-text" text="PRESSÃO FLUXO DO &#10;GAS DE PROTEÇÃO:" StackPane.alignment="BOTTOM_CENTER">
          <StackPane.margin>
-            <Insets bottom="140.0" right="150.0" />
+            <Insets bottom="130.0" right="210.0" />
          </StackPane.margin>
       </Label>
-      <Label styleClass="label-text" text="PRE FLOW CUT:" StackPane.alignment="BOTTOM_CENTER">
+      <Label styleClass="label-text" text="PRESSÃO PRE FLUXO&#10;DO GÁS DE CORTE:" StackPane.alignment="BOTTOM_CENTER">
          <StackPane.margin>
-            <Insets bottom="85.0" right="150.0" />
+            <Insets bottom="75.0" right="210.0" />
          </StackPane.margin>
       </Label>
-      <Label styleClass="label-text" text="FLOW CUT:" StackPane.alignment="BOTTOM_CENTER">
+      <Label styleClass="label-text" text="PRESSÃO FLUXO &#10;DO GAS DE CORTE:" StackPane.alignment="BOTTOM_CENTER">
          <StackPane.margin>
-            <Insets bottom="30.0" right="150.0" />
+            <Insets bottom="20.0" right="220.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="btnGas" mnemonicParsing="false" onAction="#btnGasAction" text="TIPO GAS" StackPane.alignment="TOP_LEFT">
+      <Label fx:id="lblGas" prefHeight="25.0" prefWidth="58.0" styleClass="combo-box-base" text="GAS" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
-            <Insets left="470.0" top="110.0" />
+            <Insets left="470.0" top="115.0" />
          </StackPane.margin>
-      </Button>
+      </Label>
+      <Label styleClass="label-text" text="PRESSÃO PRE FLUXO &#10;DO GÁS DE PROTEÇÃO:" wrapText="true" StackPane.alignment="BOTTOM_CENTER">
+         <StackPane.margin>
+            <Insets bottom="185.0" right="190.0" />
+         </StackPane.margin>
+      </Label>
    </children>
 </StackPane>

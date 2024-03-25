@@ -53,26 +53,31 @@ public class SQLCommandGenerator {
 
     public String generateSelectSqlCommand(String table, String column, String Key, String keyValue) {
 
-        return "SELECT " + column + " FROM " + table + " WHERE " + Key + " = " + keyValue + " ORDER BY id ASC";
+        return "SELECT " + column + " FROM " + table + " WHERE " + Key + " = " + keyValue + " ORDER BY ID ASC";
     }
 
     public String generateSelectSqlCommand(String table, String column, String Key1, String keyValue1, String Key2, String keyValue2) {
 
-        return "SELECT " + column + " FROM " + table + " WHERE " + Key1 + " = " + keyValue1 + " AND " + Key2 + " = " + keyValue2 +" ORDER BY id ASC";
+        return "SELECT " + column + " FROM " + table + " WHERE " + Key1 + " = " + keyValue1 + " AND " + Key2 + " = " + keyValue2 +" ORDER BY ID ASC";
     }
 
     public String generateSelectSqlCommand(String table, String column, String Key1, String keyValue1, String Key2, String keyValue2, String Key3, String keyValue3) {
 
-        return "SELECT " + column + " FROM " + table + " WHERE " + Key1 + " = " + keyValue1 + " AND " + Key2 + " = " + keyValue2 + " AND " +  Key3 + " = " + keyValue3 +  " ORDER BY id ASC";
+        return "SELECT " + column + " FROM " + table + " WHERE " + Key1 + " = " + keyValue1 + " AND " + Key2 + " = " + keyValue2 + " AND " +  Key3 + " = " + keyValue3 +  " ORDER BY ID ASC";
     }
 
     public String generateSelectSqlCommand(String table, String Key, String keyValue) {
 
-        return "SELECT * FROM " + table + " WHERE " + Key + " = " + keyValue + " ORDER BY id ASC";
+        return "SELECT * FROM " + table + " WHERE " + Key + " = " + keyValue + " ORDER BY ID ASC";
+    }
+
+    public String generateSelectSqlCommand(String table) {
+
+        return "SELECT * FROM " + table + " ORDER BY ID ASC";
     }
 
     public String generateSelectSqlCommand(String table, String column) {
-        return "SELECT " + column + " FROM " + table + " ORDER BY id ASC";
+        return "SELECT " + column + " FROM " + table + " ORDER BY ID ASC";
     }
 
     public String generateUpdateSqlCommand(String table, Object[][] updateData, String key, Object keyValue)

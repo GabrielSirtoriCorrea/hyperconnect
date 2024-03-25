@@ -112,4 +112,13 @@ public class DatabaseController {
         }
         return result.toArray();
     }
+
+    public void deleteData(String table, String key, String keyvalue){
+        try {
+            statement.execute(generator.generateDeleteSqlCommand(table, key, keyvalue));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
