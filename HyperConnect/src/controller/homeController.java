@@ -94,7 +94,7 @@ public class homeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         date = LocalDate.now();
-        updateTimer = actionTimer = new Timer();
+        updateTimer = new Timer();
 
         // Formatar a data
         dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -134,9 +134,9 @@ public class homeController implements Initializable {
         serialPortListener = new TimerTask() {
             @Override
             public void run() {
-                // serialPortController.sendData(">079A0<");
-                // serialNewResponse = serialPortController.readData();
-                serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009 CG0000 CG0000 MV0000 MV0000DE<";
+                serialPortController.sendData(">079A0<");
+                serialNewResponse = serialPortController.readData();
+                //serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009 CG0000 CG0000 MV0000 MV0000DE<";
                 // System.out.println(serialResponse);
                 if (!serialNewResponse.equals(serialResponse)) {
                     serialResponse = serialNewResponse;
@@ -146,61 +146,6 @@ public class homeController implements Initializable {
                 Platform.runLater(updateValues);
 
                 System.out.println("LENDO");
-
-                /*
-                 * synchronized (threadNotifier) {
-                 * while (true) {
-                 * try {
-                 * if (runThread) {
-                 * //threadFlowCounter++;
-                 * //threadPreFlowCounter++;
-                 * 
-                 * // serialPortController.sendData(">079A0<");
-                 * // serialNewResponse = serialPortController.readData();
-                 * serialNewResponse =
-                 * ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009 CG0000 CG0000 MV0000 MV0000DE<"
-                 * ;
-                 * // System.out.println(serialResponse);
-                 * if (!serialNewResponse.equals(serialResponse)) {
-                 * serialResponse = serialNewResponse;
-                 * processSerialValues(serialResponse);
-                 * }
-                 * 
-                 * System.out.println(threadFlowCounter);
-                 * 
-                 * // Thread.sleep(100);
-                 * 
-                 * updateGasValue();
-                 * if (btnFlowTest.getText().equals("PARAR TESTE FLUXO")) {
-                 * if (threadFlowCounter == 68) {
-                 * System.out.println("PARAR TESTE FLUXO");
-                 * // serialPortController.sendData(">0679D<");
-                 * btnFlowTest.setText("TESTE FLUXO");
-                 * }
-                 * } else {
-                 * threadFlowCounter = 0;
-                 * }
-                 * 
-                 * if (btnPreFlowtTest.getText().equals("PARAR TESTE PRE FLUXO")) {
-                 * if (threadPreFlowCounter == 68) {
-                 * System.out.println("PARAR TESTE PRE FLUXO");
-                 * // serialPortController.sendData(">0659B<");
-                 * btnPreFlowtTest.setText("TESTE PRE FLUXO");
-                 * }
-                 * } else {
-                 * threadPreFlowCounter = 0;
-                 * }
-                 * 
-                 * } else {
-                 * threadNotifier.wait();
-                 * }
-                 * } catch (InterruptedException e) {
-                 * System.out.println("TESTANDO");
-                 * }
-                 * 
-                 * }
-                 * }
-                 */
             }
         };
 
@@ -241,7 +186,7 @@ public class homeController implements Initializable {
                         "'" + material.toString() + "'", "CORRENTE", current.toString(), "ESPESSURA",
                         thickness.toString());
             }
-            // serialPortController.sendData(selectResult[0].toString());
+            serialPortController.sendData(selectResult[0].toString());
             System.out.println("ENVIO:" + selectResult[0].toString());
 
         }
@@ -249,8 +194,10 @@ public class homeController implements Initializable {
 
     @FXML
     void btnFlowTestAction(ActionEvent event) {
+        actionTimer = new Timer();
+
         if (btnFlowTest.getText().equals("TESTE FLUXO")) {
-            // serialPortController.sendData(">0669C<");
+            serialPortController.sendData(">0669C<");
             btnFlowTest.setText("PARAR TESTE FLUXO");
 
             updateFlowLabel = new Runnable() {
@@ -262,7 +209,7 @@ public class homeController implements Initializable {
             flowTask = new TimerTask() {
                 @Override
                 public void run() {
-                    // serialPortController.sendData(">0679D<");
+                    serialPortController.sendData(">0679D<");
                     System.out.println("5 SEGUNDOS");
                     Platform.runLater(updateFlowLabel);
                 }
@@ -270,7 +217,7 @@ public class homeController implements Initializable {
             actionTimer.schedule(flowTask, 30000);
 
         } else if (btnFlowTest.getText().equals("PARAR TESTE FLUXO")) {
-            // serialPortController.sendData(">0679D<");
+            serialPortController.sendData(">0679D<");
             System.out.println("executa");
             btnFlowTest.setText("TESTE FLUXO");
         }
@@ -279,8 +226,10 @@ public class homeController implements Initializable {
 
     @FXML
     void btnPreFlowTestAction(ActionEvent event) {
+        actionTimer = new Timer();
+
         if (btnPreFlowtTest.getText().equals("TESTE PRE FLUXO")) {
-            // serialPortController.sendData(">0649A<");
+            serialPortController.sendData(">0649A<");
             btnPreFlowtTest.setText("PARAR TESTE PRE FLUXO");
 
             updatePreFlowLabel = new Runnable() {
@@ -289,31 +238,21 @@ public class homeController implements Initializable {
                     btnPreFlowtTest.setText("TESTE PRE FLUXO");
                 }
             };
-            flowTask = new TimerTask() {
+            preFlowTask = new TimerTask() {
                 @Override
                 public void run() {
-                    // serialPortController.sendData(">0659B<");
+                    serialPortController.sendData(">0659B<");
                     System.out.println("5 SEGUNDOS");
                     Platform.runLater(updatePreFlowLabel);
                 }
             };
-            actionTimer.schedule(flowTask, 30000);
+            actionTimer.schedule(preFlowTask, 30000);
 
         } else if (btnPreFlowtTest.getText().equals("PARAR TESTE PRE FLUXO")) {
-            // serialPortController.sendData(">0679D<");
+            serialPortController.sendData(">0679D<");
             System.out.println("executa");
             btnPreFlowtTest.setText("TESTE PRE FLUXO");
         }
-        /*
-         * if (btnPreFlowtTest.getText().equals("TESTE PRE FLUXO")) {
-         * // serialPortController.sendData(">0649A<");
-         * btnPreFlowtTest.setText("PARAR TESTE PRE FLUXO");
-         * 
-         * } else if (btnPreFlowtTest.getText().equals("PARAR TESTE PRE FLUXO")) {
-         * // .sendData(">0659B<");
-         * btnPreFlowtTest.setText("TESTE PRE FLUXO");
-         * }
-         */
     }
 
     @FXML
