@@ -39,6 +39,8 @@ public class App extends Application {
         });
 
         primaryStage.setScene(scene);
+        primaryStage.setFullScreenExitHint("");
+        primaryStage.setFullScreen(true);
         primaryStage.show();
 
     }
@@ -48,6 +50,8 @@ public class App extends Application {
             Parent root = FXMLLoader.load(path);
             Scene scene = new Scene(root, 1024, 600); 
             stage.setScene(scene);
+            stage.setFullScreenExitHint("");
+            stage.setFullScreen(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
