@@ -8,17 +8,28 @@
 .label-title{
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-font-size: 20px;
+    -fx-font-size: 24px;
 }
 
 .label-text{
     -fx-text-fill: white;
     -fx-font-family: Garamound;
     -fx-font-weight: bold;
-    -fx-font-size: 15px; /* Define uma sombra para criar a borda em volta das letras */
+    -fx-font-size: 18px; /* Define uma sombra para criar a borda em volta das letras */
 }
 
 .label-backgrund{
+    -fx-background-color: #336699;
+    -fx-alignment: center; 
+    -fx-background-border-radius:10px;
+    -fx-text-fill: #a6e7ff;
+    -fx-font-family: Garamound;
+    -fx-background-radius:10px;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px; /* Define uma sombra para criar a borda em volta das letras */
+}
+
+.label-Current{
     -fx-background-color: #336699;
     -fx-alignment: center; 
     -fx-background-border-radius:10px;
@@ -26,29 +37,30 @@
     -fx-font-family: Garamound;
     -fx-background-radius:10px;
     -fx-font-weight: bold;
-    -fx-font-size: 15px; /* Define uma sombra para criar a borda em volta das letras */
+    -fx-font-size: 30px; /* Define uma sombra para criar a borda em volta das letras */
 }
 
 .combo-box-base{
     -fx-background-color:#336699;
+    -fx-font-size: 20px;
 }
 
 .combo-box-base .text{
     -fx-fill: #ffffff;
-    -fx-font-size: 12px;
+    -fx-font-size: 18px;
     -fx-font-weight: BOLD;
 }
 
 .combo-box-popup .list-cell{
     -fx-fill: #ffffff;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
     -fx-font-weight: BOLD;
     -fx-background-color:#336699;
 }
 
 .combo-box-popup .list-cell:filled:hover{
     -fx-fill: #336699;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
     -fx-font-weight: BOLD;
     -fx-background-color: #6E6E6E;
 }
@@ -73,7 +85,7 @@
 }
 
 .check-box {
-    -fx-font-size: 16px;
+    -fx-font-size: 18px;
     -fx-font-weight: BOLD;
     -fx-text-fill: white;
     -fx-font-family: Garamound;
@@ -82,7 +94,7 @@
 .check-box .box{
     -fx-background-color: #ffffff;
     -fx-border-radius: 10;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
 }
 
 .check-box:selected .box {
@@ -94,9 +106,9 @@
     -fx-shape: "M1.73,12.91 8.1,19.28 22.79,4.59 22.79,1.59 8.1,16.28 1.73,9.91";
 }
 
-.button{
+.button-action{
     -fx-text-fill: white;
-    -fx-font-size: 14px;
+    -fx-font-size: 18px;
     -fx-font-weight: BOLD;
     -fx-background-color: #336699;
     -fx-border-color: white;
