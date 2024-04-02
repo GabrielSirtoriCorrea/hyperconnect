@@ -81,7 +81,7 @@ public class homeController implements Initializable {
     private String serialResponse, serialNewResponse;
     private Thread serialPortListenerThread;
     private Object threadNotifier = new Object();
-    private boolean flowControl;
+    private boolean flowControl, serialStatus;
     private String[] serialValues;
     private String pfp, fp, pfc, fc, labelCurrent, error, state;
     private int errorIndex, stateIndex, threadFlowCounter, threadPreFlowCounter;
@@ -102,9 +102,15 @@ public class homeController implements Initializable {
 
         lblDate.setText(formattedDate);
         chkCut.setSelected(true);
+        serialStatus = false;
 
         databaseController = new DatabaseController("./HyperConnect/teste.db");
         databaseController.CreateTables();
+        
+        //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
+        databaseController.deleteData("COD_OPERACAO", "ID", "104");
+        //Object[][] inserObjects = {{"MATERIAL", "Alumínio"}, {"ESPESSURA", 25}, {"CORRENTE", 400}, {"GAS_CORTAR", "N2/AR"}, {"GAS_MARCAR", "N2/N2"}, {"COD_CORTAR", ">05826035< >0966 52A< >07870 31 30 50 00 0092<"}, {"COD_MARCAR", ">05802231<  >0966 62B< >07810 10 10 10 00 0083<"}};
+        //databaseController.insertData("COD_OPERACAO", inserObjects);
 
         cmbMaterial.setOnShowing(event -> btnMaterialsListAction());
         cmbThickness.setOnShowing(event -> btnThicknessListAction());
@@ -134,18 +140,60 @@ public class homeController implements Initializable {
         serialPortListener = new TimerTask() {
             @Override
             public void run() {
-                serialPortController.sendData(">079A0<");
-                serialNewResponse = serialPortController.readData();
-                //serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009 CG0000 CG0000 MV0000 MV0000DE<";
-                // System.out.println(serialResponse);
-                if (!serialNewResponse.equals(serialResponse)) {
-                    serialResponse = serialNewResponse;
-                    processSerialValues(serialResponse);
+                try {
+                    System.out.println(serialStatus);
+                    if (serialStatus) {
+                        serialPortController.sendData(">079A0<");
+                        serialNewResponse = serialPortController.readData();
+                        // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
+                        // CG0000 CG0000 MV0000 MV0000DE<";
+                        // System.out.println(serialResponse);
+                        if (!serialNewResponse.equals("")) {
+                            if (!serialNewResponse.equals(serialResponse)) {
+                                serialResponse = serialNewResponse;
+                                System.out.println(serialResponse);
+                                processSerialValues(serialResponse);
+                            }
+                        } else {
+                            serialStatus = false;
+                        }
+
+                        Platform.runLater(updateValues);
+
+                    } else {
+                        serialPortController.sendData(">00090<");
+                        serialNewResponse = serialPortController.readData();
+                        serialResponse = serialNewResponse;
+                        System.out.println("TENTANDO COMUNICACAO");
+                        if (serialResponse.equals(">000HYPERFORMANCE130AUTO30<")) {
+                            serialStatus = true;
+                        } else {
+                            serialStatus = false;
+                        }
+                    }
+                    /*
+                     * if(!serialStatus){
+                     * serialPortController.sendData(">00090<");
+                     * serialNewResponse = serialPortController.readData();
+                     * serialResponse = serialNewResponse;
+                     * System.out.println("TENTANDO COMUNICACAO");
+                     * if(serialResponse.equals(">000HYPERFORMANCE130AUTO30<")){
+                     * serialStatus = true;
+                     * }else{
+                     * serialStatus = false;
+                     * }
+                     * }else{
+                     * 
+                     * }
+                     * Platform.runLater(updateValues);
+                     * }/*
+                     */
+
+                } catch (Exception e) {
+                    System.out.println("SEM COMUNICACAO");
+                    serialStatus = false;
+
                 }
-
-                Platform.runLater(updateValues);
-
-                System.out.println("LENDO");
             }
         };
 
@@ -174,6 +222,7 @@ public class homeController implements Initializable {
 
     @FXML
     void btnSendAction(ActionEvent event) {
+
         if (!cmbMaterial.getSelectionModel().isEmpty() && !cmbThickness.getSelectionModel().isEmpty()
                 && !cmbCurrent.getSelectionModel().isEmpty() && (chkCut.isSelected() || chkMark.isSelected())) {
 
@@ -385,7 +434,6 @@ public class homeController implements Initializable {
     void btnSettingsAction(ActionEvent event) {
         App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnHome.getScene().getWindow());
     }
-
 
     private void updateGasValue() {
 

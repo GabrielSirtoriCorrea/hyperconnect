@@ -121,4 +121,15 @@ public class DatabaseController {
         }
     }
 
+    public void updateData(String table, Object[][] updateData, String key, Object keyValue){
+        try {
+            command = generator.generateUpdateSqlCommand(table, updateData, key, keyValue);
+            System.out.println(command);
+            preparedStatement = generator.addCommandValues(connection, table, command, key, keyValue,  updateData);
+            preparedStatement.execute();
+        } catch (SQLException sqlException) {
+            sqlException.getErrorCode();
+        }
+    }
+
 }
