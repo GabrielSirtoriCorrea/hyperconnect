@@ -52,19 +52,19 @@
             <Insets left="200.0" top="80.0" />
          </StackPane.margin>
       </CheckBox>
-      <ComboBox fx:id="cmbMaterial" prefHeight="39.0" prefWidth="204.0" promptText="MATERIAL" StackPane.alignment="TOP_LEFT">
+      <ComboBox fx:id="cmbMaterial" prefHeight="39.0" prefWidth="220.0" promptText="MATERIAL" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="30.0" top="160.0" />
          </StackPane.margin>
       </ComboBox>
       <ComboBox fx:id="cmbThickness" prefHeight="39.0" prefWidth="176.0" promptText="ESPESSURA" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
-            <Insets left="260.0" top="160.0" />
+            <Insets left="270.0" top="160.0" />
          </StackPane.margin>
       </ComboBox>
       <ComboBox fx:id="cmbCurrent" prefHeight="39.0" prefWidth="166.0" promptText="CORRENTE" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
-            <Insets left="460.0" top="160.0" />
+            <Insets left="470.0" top="160.0" />
          </StackPane.margin>
       </ComboBox>
       <Label styleClass="label-text" text="ESTADO:" StackPane.alignment="CENTER_LEFT">
@@ -178,12 +178,12 @@
       </Label>
       <Label styleClass="label-text" text="ESPESSURA (mm):" wrapText="true" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
-            <Insets left="260.0" top="130.0" />
+            <Insets left="270.0" top="130.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" text="CORRENTE (A):" wrapText="true" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
-            <Insets left="460.0" top="130.0" />
+            <Insets left="470.0" top="130.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" text="GAS:" wrapText="true" StackPane.alignment="TOP_LEFT">
