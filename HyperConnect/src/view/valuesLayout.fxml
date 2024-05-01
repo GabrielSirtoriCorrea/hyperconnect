@@ -103,7 +103,6 @@
             <Insets left="460.0" top="210.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSettingsAction" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_LEFT" />
       <Label fx:id="lblPreFlowCut" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO PFC" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets bottom="140.0" left="675.0" top="310.0" />
