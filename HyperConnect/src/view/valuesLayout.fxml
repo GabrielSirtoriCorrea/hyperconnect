@@ -1,10 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<StackPane fx:id="pnValues" prefHeight="600.0" prefWidth="1024.0" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.valuesController">
+<StackPane fx:id="pnValues" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #87919b;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.valuesController">
    <children>
-      <Button mnemonicParsing="false" onAction="#btnHomeAction" styleClass="button-action" text="HOME" />
+      <Label styleClass="label-title" stylesheets="@Styles.css" text="DIAGNÓSTICOS" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="5.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="COMUNICAÇÃO:" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="50.0" top="50.0" />
+         </StackPane.margin>
+      </Label>
+      <ImageView fx:id="imgComunication" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <image>
+            <Image url="@Resources/ON%20label%20high.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="20.0" top="55.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Label styleClass="label-text" text="DESCRIÇÃO ESTADO:" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="30.0" top="520.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblStatusDesc" prefHeight="30.0" prefWidth="400.0" styleClass="label-backgrund" text="ATUALIZANDO SISTEMA" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="220.0" top="520.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="DESCRIÇÃO ERRO:" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="30.0" top="560.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblErrorDec" prefHeight="30.0" prefWidth="400.0" styleClass="label-backgrund" text="ERRO NO SISTEMA" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="220.0" top="560.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblPreFlowProt" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO PFP" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="675.0" top="470.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblFloProt" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO FP" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="675.0" top="390.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblFlowCut" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO FC" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="675.0" top="230.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="PRESSÃO FLUXO DO &#10;GAS DE PROTEÇÃO:" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="460.0" top="370.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="PRESSÃO PRE FLUXO&#10;DO GÁS DE CORTE:" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="460.0" top="290.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="PRESSÃO PRE FLUXO &#10;DO GÁS DE PROTEÇÃO:" wrapText="true" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="460.0" top="450.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="btnBomb" mnemonicParsing="false" onAction="#btnBombAction" prefHeight="70.0" prefWidth="150.0" styleClass="button-action" text="TESTE BOMBA" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="30.0" top="100.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="btnReset" mnemonicParsing="false" onAction="#btnResetAction" prefHeight="70.0" prefWidth="150.0" styleClass="button-action" text="RESET" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="30.0" top="420.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="btnPreFlowtTest" mnemonicParsing="false" onAction="#btnPreFlowTestAction" prefHeight="70.0" prefWidth="150.0" styleClass="button-action" text="TESTE PRE FLUXO" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="30.0" top="190.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="btnFlowTest" mnemonicParsing="false" onAction="#btnFlowTestAction" prefHeight="70.0" prefWidth="150.0" styleClass="button-action" text="TESTE FLUXO" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="30.0" top="280.0" />
+         </StackPane.margin>
+      </Button>
+      <Label styleClass="label-text" text="PRESSÃO FLUXO &#10;DO GAS DE CORTE:" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="460.0" top="210.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSettingsAction" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_LEFT" />
+      <Label fx:id="lblPreFlowCut" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO PFC" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets bottom="140.0" left="675.0" top="310.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblCG2Presure" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO CG2" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="675.0" top="155.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="PRESSÃO CG2:&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="460.0" top="160.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblCG1Presure" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="PRESSAO CG1" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="675.0" top="95.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="PRESSÃO CG1:&#10;&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="460.0" top="85.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblCurrentLine" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="210.0" top="100.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="TENSÃO DE LINHA:&#10;&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="40.0" top="85.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblLiqRef" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="210.0" top="180.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="FLUXO DE LÍQUIDO&#10;REFRIGERANTE:&#10;&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="40.0" top="145.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblChopCurrentA" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="210.0" top="250.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="I CHOPPER A:&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="40.0" top="250.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblChopCurrentB" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="210.0" top="300.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="I CHOPPER B:&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="40.0" top="300.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblStatusNumber" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="210.0" top="350.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="ESTADO:&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="40.0" top="350.0" />
+         </StackPane.margin>
+      </Label>
+      <Label fx:id="lblErrorNumber" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="210.0" top="400.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" text="ERRO:&#10;" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="40.0" top="400.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackAction" style="-fx-background-color: TRANSPARENT; -fx-text-fill: white;" text=" VOLTAR" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="20.0" top="5.0" />
+         </StackPane.margin>
+      </Button>
+      <Button fx:id="btnConfig" mnemonicParsing="false" onAction="#btnConfigAction" style="-fx-background-color: TRANSPARENT; -fx-text-fill: white;" text="CONFIG." StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets right="25.0" top="5.0" />
+         </StackPane.margin>
+      </Button>
+      <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="36.0" style="-fx-text-fill: white;" text="&lt;" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="49.0" />
+         </font>
+         <padding>
+            <Insets top="-15.0" />
+         </padding>
+      </Label>
+      <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="36.0" style="-fx-text-fill: white;" text="&gt;" StackPane.alignment="TOP_RIGHT">
+         <font>
+            <Font name="System Bold" size="49.0" />
+         </font>
+         <padding>
+            <Insets top="-15.0" />
+         </padding>
+      </Label>
    </children>
 </StackPane>

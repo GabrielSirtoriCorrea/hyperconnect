@@ -108,9 +108,9 @@ public class homeController implements Initializable {
         databaseController.CreateTables();
         
         //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
-        databaseController.deleteData("COD_OPERACAO", "ID", "104");
+        //databaseController.deleteData("COD_OPERACAO", "ID", "104");
         //Object[][] inserObjects = {{"MATERIAL", "Alumínio"}, {"ESPESSURA", 25}, {"CORRENTE", 400}, {"GAS_CORTAR", "N2/AR"}, {"GAS_MARCAR", "N2/N2"}, {"COD_CORTAR", ">05826035< >0966 52A< >07870 31 30 50 00 0092<"}, {"COD_MARCAR", ">05802231<  >0966 62B< >07810 10 10 10 00 0083<"}};
-        //databaseController.insertData("COD_OPERACAO", inserObjects);
+        //databaseController.updateData("COD_OPERACAO", inserObjects, "dasjdn", "dasdklsml");
 
         cmbMaterial.setOnShowing(event -> btnMaterialsListAction());
         cmbThickness.setOnShowing(event -> btnThicknessListAction());
@@ -143,8 +143,8 @@ public class homeController implements Initializable {
                 try {
                     System.out.println(serialStatus);
                     if (serialStatus) {
-                        serialPortController.sendData(">079A0<");
-                        serialNewResponse = serialPortController.readData();
+                        //serialPortController.sendData(">079A0<");
+                        //serialNewResponse = serialPortController.readData();
                         // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
                         // CG0000 CG0000 MV0000 MV0000DE<";
                         // System.out.println(serialResponse);
@@ -171,23 +171,6 @@ public class homeController implements Initializable {
                             serialStatus = false;
                         }
                     }
-                    /*
-                     * if(!serialStatus){
-                     * serialPortController.sendData(">00090<");
-                     * serialNewResponse = serialPortController.readData();
-                     * serialResponse = serialNewResponse;
-                     * System.out.println("TENTANDO COMUNICACAO");
-                     * if(serialResponse.equals(">000HYPERFORMANCE130AUTO30<")){
-                     * serialStatus = true;
-                     * }else{
-                     * serialStatus = false;
-                     * }
-                     * }else{
-                     * 
-                     * }
-                     * Platform.runLater(updateValues);
-                     * }/*
-                     */
 
                 } catch (Exception e) {
                     System.out.println("SEM COMUNICACAO");
@@ -197,7 +180,7 @@ public class homeController implements Initializable {
             }
         };
 
-        updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
+        //updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
 
         ArrayList<Object> cmbMaterialContentStart = new ArrayList<>();
         cmbMaterialContentStart.add("Aço Carbono");
