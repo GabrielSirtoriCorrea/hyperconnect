@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="pnConfig" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: #87919b;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.configController">
+   <children>
+      <Label styleClass="label-title" stylesheets="@Styles.css" text="ACESSO RESTRITO" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets top="5.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSettingsAction" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_LEFT" />
+      <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackAction" style="-fx-background-color: TRANSPARENT; -fx-text-fill: white;" text=" VOLTAR" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="20.0" top="5.0" />
+         </StackPane.margin>
+      </Button>
+      <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="36.0" style="-fx-text-fill: white;" text="&lt;" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font name="System Bold" size="49.0" />
+         </font>
+         <padding>
+            <Insets top="-15.0" />
+         </padding>
+      </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 AUTOGAS" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="350.0" left="250.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="250.0" left="250.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 AUTOGAS" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="150.0" left="250.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="50.0" left="250.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 400 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets left="250.0" top="50.0" />
+         </StackPane.margin>
+      </Label>
+      <ToggleButton fx:id="btn130" mnemonicParsing="false" onAction="#btn130Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Resources/btnDesactivate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <StackPane.margin>
+            <Insets bottom="350.0" left="500.0" />
+         </StackPane.margin>
+      </ToggleButton>
+      <ToggleButton fx:id="btn130Xd" mnemonicParsing="false" onAction="#btn130XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Resources/btnDesactivate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <StackPane.margin>
+            <Insets bottom="250.0" left="500.0" />
+         </StackPane.margin>
+      </ToggleButton>
+      <ToggleButton fx:id="btn260" mnemonicParsing="false" onAction="#btn260Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Resources/btnDesactivate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <StackPane.margin>
+            <Insets bottom="150.0" left="500.0" />
+         </StackPane.margin>
+      </ToggleButton>
+      <ToggleButton fx:id="btn260Xd" mnemonicParsing="false" onAction="#btn260XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Resources/btnDesactivate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <StackPane.margin>
+            <Insets bottom="50.0" left="500.0" />
+         </StackPane.margin>
+      </ToggleButton>
+      <ToggleButton fx:id="btn400Xd" mnemonicParsing="false" onAction="#btn400XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
+         <graphic>
+            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Resources/btnDesactivate.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <StackPane.margin>
+            <Insets bottom="-50.0" left="500.0" />
+         </StackPane.margin>
+      </ToggleButton>
+   </children>
+</StackPane>
