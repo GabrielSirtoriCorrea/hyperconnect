@@ -117,4 +117,8 @@
 
 }
 
+.meu-botao {
+    -fx-background-image: url("/src/view/Resources/btnActivate.png");
+}
+
 
