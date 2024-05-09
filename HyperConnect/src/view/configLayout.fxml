@@ -60,7 +60,7 @@
       </Label>
       <ToggleButton fx:id="btn130" mnemonicParsing="false" onAction="#btn130Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="icon130" fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Resources/btnDesactivate.png" />
                </image>
@@ -72,7 +72,7 @@
       </ToggleButton>
       <ToggleButton fx:id="btn130Xd" mnemonicParsing="false" onAction="#btn130XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="icon130xd" fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Resources/btnDesactivate.png" />
                </image>
@@ -84,7 +84,7 @@
       </ToggleButton>
       <ToggleButton fx:id="btn260" mnemonicParsing="false" onAction="#btn260Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="icon260" fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Resources/btnDesactivate.png" />
                </image>
@@ -96,7 +96,7 @@
       </ToggleButton>
       <ToggleButton fx:id="btn260Xd" mnemonicParsing="false" onAction="#btn260XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="icon260xd" fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Resources/btnDesactivate.png" />
                </image>
@@ -108,7 +108,7 @@
       </ToggleButton>
       <ToggleButton fx:id="btn400Xd" mnemonicParsing="false" onAction="#btn400XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
          <graphic>
-            <ImageView fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="icon400xd" fitHeight="34.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Resources/btnDesactivate.png" />
                </image>

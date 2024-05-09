@@ -76,7 +76,7 @@ public class passwordController implements Initializable {
 
     @FXML
     void btnBackAction(ActionEvent event) {
-
+        App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnPassword.getScene().getWindow());
     }
 
 }

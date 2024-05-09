@@ -9,7 +9,6 @@ public class popupPasswordController {
 
     @FXML
     private StackPane pnPasswordPopup;
-
     private Stage popupStage;
 
     @FXML
