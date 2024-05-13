@@ -85,7 +85,7 @@ public class App extends Application {
                     .isBefore(LocalDate.now())) {
                 try {
                     popUpExpirationTimeStage = new Stage();
-                    popupLoader = new FXMLLoader(getClass().getResource("/view/expirationTimelayout.fxml"));
+                    popupLoader = new FXMLLoader(getClass().getResource("/view/expirationTimeLayout.fxml"));
                     icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
                     popUpExpirationTimeStage.getIcons().add(icon);
                     popUpExpirationTimeStage.initModality(Modality.APPLICATION_MODAL);
