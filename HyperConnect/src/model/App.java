@@ -7,6 +7,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 
 import org.json.simple.JSONObject;
@@ -23,11 +25,14 @@ import javafx.stage.WindowEvent;
 public class App extends Application {
     private FXMLLoader popupLoader;
     private Image icon;
-    private Stage popUpStage;
-    private Scene popUpScene;
+    private Stage popUpAccessKeyStage, popUpExpirationTimeStage;
+    private Scene popUpAccessKeyScene, popUpExpirationTimeScene;
+    private Object expiration;
+    private String now, dateDecrypted;
 
     public static void main(String[] args) throws Exception {
         launch(args);
+        // chave LXlT6PeP6yU3rEnPCgNWAXviZ/2S8hqyFOLzsuZB8jEN7nt0akxX6B5Shz+GN7a4
     }
 
     @Override
@@ -52,24 +57,47 @@ public class App extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.show();
 
-        System.out.println(Base64.getEncoder().encodeToString(CryptoConverter.encrypt(">000HYPERFORMANCE400XDAUTO30<")));
+        System.out.println(Base64.getEncoder()
+                .encodeToString(CryptoConverter.encrypt(">000HYPERFORMANCE400XDAUTO30<:01-01-3000")));
 
-        if (JsonEditor.readJSON().get("access-key") == null) {
+        expiration = JsonEditor.readJSON().get("expiration");
+
+        if (expiration == null) {
 
             try {
-                popUpStage = new Stage();
+                popUpAccessKeyStage = new Stage();
                 popupLoader = new FXMLLoader(getClass().getResource("/view/popupAccessKeylayout.fxml"));
                 icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
-                popUpStage.getIcons().add(icon);
-                popUpStage.initModality(Modality.APPLICATION_MODAL);
-                popUpStage.setTitle("Licença");
-                popUpStage.initOwner(scene.getWindow());
-                popUpScene = new Scene(popupLoader.load());
-                popUpStage.setScene(popUpScene);
+                popUpAccessKeyStage.getIcons().add(icon);
+                popUpAccessKeyStage.initModality(Modality.APPLICATION_MODAL);
+                popUpAccessKeyStage.setTitle("Licença");
+                popUpAccessKeyStage.initOwner(scene.getWindow());
+                popUpAccessKeyScene = new Scene(popupLoader.load());
+                popUpAccessKeyStage.setScene(popUpAccessKeyScene);
 
-                popUpStage.showAndWait();
+                popUpAccessKeyStage.showAndWait();
             } catch (Exception e) {
                 e.printStackTrace();
+            }
+        } else {
+            dateDecrypted = CryptoConverter.decrypt(Base64.getDecoder().decode(expiration.toString()));
+            if (LocalDate.parse(dateDecrypted, DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                    .isBefore(LocalDate.now())) {
+                try {
+                    popUpExpirationTimeStage = new Stage();
+                    popupLoader = new FXMLLoader(getClass().getResource("/view/expirationTimelayout.fxml"));
+                    icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
+                    popUpExpirationTimeStage.getIcons().add(icon);
+                    popUpExpirationTimeStage.initModality(Modality.APPLICATION_MODAL);
+                    popUpExpirationTimeStage.setTitle("Licença expirada");
+                    popUpExpirationTimeStage.initOwner(scene.getWindow());
+                    popUpExpirationTimeScene = new Scene(popupLoader.load());
+                    popUpExpirationTimeStage.setScene(popUpExpirationTimeScene);
+
+                    popUpExpirationTimeStage.showAndWait();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 package controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 
 import javafx.event.ActionEvent;
@@ -23,8 +25,9 @@ public class popupAcessKeyController {
     private Label lblIncorrectKey;
 
     private String accesskey;
-
+    private String[] data;
     private Stage popupStage;
+
 
     @FXML
     void btnApplyAction(ActionEvent event) {
@@ -32,23 +35,12 @@ public class popupAcessKeyController {
             try {
                 accesskey = CryptoConverter.decrypt(Base64.getDecoder().decode(txtkey.getText()));
 
+                data = accesskey.split(":");
+
                 if (accesskey.contains("HYPERFORMANCE")) {
-                    if (accesskey.contains("130AUTO30")) {
-                        JsonEditor.updateJson("access-key", txtkey.getText());
-                        JsonEditor.updateJson("machine", ">000HYPERFORMANCE130AUTO30<");
-                    } else if (accesskey.contains("130XDAUTO30")) {
-                        JsonEditor.updateJson("access-key", txtkey.getText());
-                        JsonEditor.updateJson("machine", ">000HYPERFORMANCE130XDAUTO30<");
-                    } else if (accesskey.contains("260AUTO30")) {
-                        JsonEditor.updateJson("access-key", txtkey.getText());
-                        JsonEditor.updateJson("machine", ">000HYPERFORMANCE260AUTO30<");
-                    } else if (accesskey.contains("260XDAUTO30")) {
-                        JsonEditor.updateJson("access-key", txtkey.getText());
-                        JsonEditor.updateJson("machine", ">000HYPERFORMANCE260XDAUTO30<");
-                    } else if (accesskey.contains("400XDAUTO30")) {
-                        JsonEditor.updateJson("access-key", txtkey.getText());
-                        JsonEditor.updateJson("machine", ">000HYPERFORMANCE400XDAUTO30<");
-                    }
+                    JsonEditor.updateJson("machine", data[0].toString());
+                    System.out.println(data[1]);
+                    JsonEditor.updateJson("expiration", Base64.getEncoder().encodeToString(CryptoConverter.encrypt(data[1].toString())));
 
                     popupStage = (Stage) pnAccessPopup.getScene().getWindow();
                     popupStage.close();
