@@ -201,9 +201,6 @@ public class homeController implements Initializable {
         cmbCurrent.setItems(FXCollections.observableArrayList(cmbCurrentContentStart));
         cmbCurrent.getSelectionModel().selectFirst();
 
-        // serialPortListenerThread = new Thread(serialPortListener);
-        // serialPortListenerThread.start();
-
     }
 
     @FXML
