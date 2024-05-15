@@ -146,6 +146,7 @@ public class homeController implements Initializable {
                 try {
                     System.out.println(serialStatus);
                     if (serialStatus) {
+                        imgComunication.setImage(new Image("/view/Resources/ONlabelHigh.png"));
                         serialPortController.sendData(">079A0<");
                         serialNewResponse = serialPortController.readData();
                         // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
@@ -164,6 +165,7 @@ public class homeController implements Initializable {
                         Platform.runLater(updateValues);
 
                     } else {
+                        imgComunication.setImage(new Image("/view/Resources/OFFlabelHigh.png"));
                         serialPortController.sendData(">00090<");
                         serialNewResponse = serialPortController.readData();
                         serialResponse = serialNewResponse;
