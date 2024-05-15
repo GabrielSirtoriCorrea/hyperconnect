@@ -146,11 +146,11 @@ public class homeController implements Initializable {
                 try {
                     System.out.println(serialStatus);
                     if (serialStatus) {
-                        //serialPortController.sendData(">079A0<");
-                        //serialNewResponse = serialPortController.readData();
+                        serialPortController.sendData(">079A0<");
+                        serialNewResponse = serialPortController.readData();
                         // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
                         // CG0000 CG0000 MV0000 MV0000DE<";
-                        // System.out.println(serialResponse);
+                        System.out.println("RESPOSTA>>" + serialResponse);
                         if (!serialNewResponse.equals("")) {
                             if (!serialNewResponse.equals(serialResponse)) {
                                 serialResponse = serialNewResponse;
@@ -292,7 +292,9 @@ public class homeController implements Initializable {
 
     @FXML
     void btnResetAction(ActionEvent event) {
+        updateTimer.cancel();
         serialPortController.sendData(">0689E<");
+        updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
 
     }
 
@@ -418,6 +420,7 @@ public class homeController implements Initializable {
 
     @FXML
     void btnSettingsAction(ActionEvent event) {
+        updateTimer.cancel();
         App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnHome.getScene().getWindow());
     }
 
