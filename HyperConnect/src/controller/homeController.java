@@ -82,12 +82,10 @@ public class homeController implements Initializable {
     private Runnable updateValues, updateFlowLabel, updatePreFlowLabel;
     private SerialPortController serialPortController;
     private String serialResponse, serialNewResponse;
-    private Thread serialPortListenerThread;
-    private Object threadNotifier = new Object();
-    private boolean flowControl, serialStatus;
+    private boolean serialStatus;
     private String[] serialValues;
     private String pfp, fp, pfc, fc, labelCurrent, error, state;
-    private int errorIndex, stateIndex, threadFlowCounter, threadPreFlowCounter;
+    private int errorIndex, stateIndex;
     private LocalDate date;
     private String formattedDate;
     private DateTimeFormatter dateFormatter;
@@ -118,7 +116,6 @@ public class homeController implements Initializable {
         cmbMaterial.setOnShowing(event -> btnMaterialsListAction());
         cmbThickness.setOnShowing(event -> btnThicknessListAction());
         cmbCurrent.setOnShowing(event -> btnCurrentListAction());
-        threadFlowCounter = threadPreFlowCounter = 0;
         serialResponse = "";
 
         serialPortController = new SerialPortController();

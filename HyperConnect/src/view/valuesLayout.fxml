@@ -123,7 +123,7 @@
             <Insets left="460.0" top="140.0" />
          </StackPane.margin>
       </Label>
-      <Label fx:id="lblCurrentLine" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
+      <Label fx:id="lblVoltageLine" prefHeight="30.0" prefWidth="135.0" styleClass="label-backgrund" text="TENSÃO" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="210.0" top="150.0" />
          </StackPane.margin>
