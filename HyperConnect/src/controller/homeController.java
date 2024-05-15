@@ -293,6 +293,7 @@ public class homeController implements Initializable {
     @FXML
     void btnResetAction(ActionEvent event) {
         updateTimer.cancel();
+        updateTimer.purge();
         serialPortController.sendData(">0689E<");
         updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
 
