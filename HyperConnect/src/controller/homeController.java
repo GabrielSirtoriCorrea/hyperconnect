@@ -183,7 +183,7 @@ public class homeController implements Initializable {
             }
         };
 
-        //updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
+        updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
 
         ArrayList<Object> cmbMaterialContentStart = new ArrayList<>();
         cmbMaterialContentStart.add("Aço Carbono");
