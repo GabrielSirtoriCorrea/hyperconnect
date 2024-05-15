@@ -10,7 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
@@ -18,6 +20,69 @@ import javafx.stage.Stage;
 import model.App;
 
 public class valuesController implements Initializable{
+
+    @FXML
+    private Button btnBomb;
+
+    @FXML
+    private Button btnConfig;
+
+    @FXML
+    private Button btnFlowTest;
+
+    @FXML
+    private Button btnPreFlowtTest;
+
+    @FXML
+    private Button btnReset;
+
+    @FXML
+    private ImageView imgComunication;
+
+    @FXML
+    private Label lblCG1Presure;
+
+    @FXML
+    private Label lblCG2Presure;
+
+    @FXML
+    private Label lblChopCurrentA;
+
+    @FXML
+    private Label lblChopCurrentB;
+
+    @FXML
+    private Label lblCurrentLine;
+
+    @FXML
+    private Label lblDate;
+
+    @FXML
+    private Label lblErrorDec;
+
+    @FXML
+    private Label lblErrorNumber;
+
+    @FXML
+    private Label lblFloProt;
+
+    @FXML
+    private Label lblFlowCut;
+
+    @FXML
+    private Label lblLiqRef;
+
+    @FXML
+    private Label lblPreFlowCut;
+
+    @FXML
+    private Label lblPreFlowProt;
+
+    @FXML
+    private Label lblStatusDesc;
+
+    @FXML
+    private Label lblStatusNumber;
 
     @FXML
     private StackPane pnValues;

@@ -13,7 +13,7 @@
    <children>
       <Label styleClass="label-title" stylesheets="@Styles.css" text="ACESSO RESTRITO" StackPane.alignment="TOP_CENTER">
          <StackPane.margin>
-            <Insets top="5.0" />
+            <Insets top="70.0" />
          </StackPane.margin>
       </Label>
       <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSettingsAction" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_LEFT" />
@@ -22,7 +22,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
          <StackPane.margin>
-            <Insets left="20.0" top="5.0" />
+            <Insets left="20.0" top="70.0" />
          </StackPane.margin>
       </Button>
       <Label alignment="TOP_CENTER" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="36.0" style="-fx-text-fill: white;" text="&lt;" StackPane.alignment="TOP_LEFT">
@@ -32,30 +32,33 @@
          <padding>
             <Insets top="-15.0" />
          </padding>
-      </Label>
-      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="350.0" left="250.0" />
+            <Insets top="65.0" />
          </StackPane.margin>
       </Label>
-      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="250.0" left="250.0" />
          </StackPane.margin>
       </Label>
-      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 AUTOGAS" StackPane.alignment="CENTER_LEFT">
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
             <Insets bottom="150.0" left="250.0" />
          </StackPane.margin>
       </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 AUTOGAS" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="150.0" left="250.0" top="100.0" />
+         </StackPane.margin>
+      </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="50.0" left="250.0" />
+            <Insets left="250.0" top="50.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 400 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets left="250.0" top="50.0" />
+            <Insets left="250.0" top="150.0" />
          </StackPane.margin>
       </Label>
       <ToggleButton fx:id="btn130" mnemonicParsing="false" onAction="#btn130Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -67,7 +70,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="350.0" left="500.0" />
+            <Insets bottom="250.0" left="500.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn130Xd" mnemonicParsing="false" onAction="#btn130XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -79,7 +82,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="250.0" left="500.0" />
+            <Insets bottom="150.0" left="500.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn260" mnemonicParsing="false" onAction="#btn260Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -91,7 +94,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="150.0" left="500.0" />
+            <Insets bottom="50.0" left="500.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn260Xd" mnemonicParsing="false" onAction="#btn260XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -103,7 +106,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="50.0" left="500.0" />
+            <Insets left="500.0" top="50.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn400Xd" mnemonicParsing="false" onAction="#btn400XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -115,8 +118,32 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="-50.0" left="500.0" />
+            <Insets bottom="-150.0" left="500.0" />
          </StackPane.margin>
       </ToggleButton>
+      <ImageView fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+         <image>
+            <Image url="@Resources/Logo.png" />
+         </image>
+      </ImageView>
+      <Label styleClass="label-title" stylesheets="@Styles.css" text="HYPERCONNECT" StackPane.alignment="TOP_CENTER" />
+      <Label styleClass="label-text" text="COMUNICAÇÃO:" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="50.0" top="30.0" />
+         </StackPane.margin>
+      </Label>
+      <ImageView fx:id="imgComunication" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <image>
+            <Image url="@Resources/ON%20label%20high.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="20.0" top="35.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Label fx:id="lblDate" styleClass="label-text" text="20/03/2024" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="10.0" />
+         </StackPane.margin>
+      </Label>
    </children>
 </StackPane>

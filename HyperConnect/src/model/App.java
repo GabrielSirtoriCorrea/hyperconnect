@@ -32,7 +32,7 @@ public class App extends Application {
 
     public static void main(String[] args) throws Exception {
         launch(args);
-        // chave LXlT6PeP6yU3rEnPCgNWAXviZ/2S8hqyFOLzsuZB8jEN7nt0akxX6B5Shz+GN7a4
+        // chave LXlT6PeP6yU3rEnPCgNWAT6uBjRjMIxLkjF+XZQ4DeUx8boufAXcOiL+iVFaW22L
     }
 
     @Override
