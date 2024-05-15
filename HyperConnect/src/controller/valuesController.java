@@ -127,6 +127,7 @@ public class valuesController implements Initializable{
                 lblVoltageLine.setText(lvo);
                 lblStatusNumber.setText(Integer.toString(stateIndex));
                 lblErrorNumber.setText(Integer.toString(errorIndex));
+                lblLiqRef.setText(cfl);
             }
 
         };
@@ -209,14 +210,14 @@ public class valuesController implements Initializable{
     void btnBombAction(ActionEvent event) {
         actionTimer = new Timer();
 
-        if (btnBomb.getText().equals("TESTE PRE FLUXO")) {
+        if (btnBomb.getText().equals("TESTE BOMBA")) {
             serialPortController.sendData(">0711C9<");
-            btnBomb.setText("PARAR TESTE PRE FLUXO");
+            btnBomb.setText("PARAR TESTE BOMBA");
 
             updateBombLabel = new Runnable() {
                 @Override
                 public void run() {
-                    btnBomb.setText("TESTE PRE FLUXO");
+                    btnBomb.setText("TESTE BOMBA");
                 }
             };
             bombTask = new TimerTask() {
@@ -229,10 +230,10 @@ public class valuesController implements Initializable{
             };
             actionTimer.schedule(bombTask, 30000);
 
-        } else if (btnBomb.getText().equals("PARAR TESTE PRE FLUXO")) {
+        } else if (btnBomb.getText().equals("PARAR TESTE BOMBA")) {
             serialPortController.sendData(">0710C8<");
             System.out.println("executa");
-            btnBomb.setText("TESTE PRE FLUXO");
+            btnBomb.setText("TESTE BOMBA");
         }
     }
 
@@ -327,7 +328,7 @@ public class valuesController implements Initializable{
             errorIndex = Integer.parseInt(serialStandartValues[6].replace("ER0", ""));
             
             cg1 = serialStandartValues[7].replace("CG0", "")  + " LB/POL2";
-            cg1 = serialStandartValues[8].replace("CG0", "")  + " LB/POL2";
+            cg2 = serialStandartValues[8].replace("CG0", "")  + " LB/POL2";
 
             state = databaseController.getData("ESTADOS", "DESCRICAO", "ID", Integer.toString(stateIndex))[0]
                             .toString();
@@ -343,7 +344,7 @@ public class valuesController implements Initializable{
         if (serialResponse.startsWith(">") && serialResponse.endsWith("<")) {
             serialDiagnosticValues = serialResponse.replace(">100", "").split(" ");
             lvo = Integer.toString(Integer.parseInt(serialDiagnosticValues[2].replace("LVO0", ""))/100 )+ "V";
-            cfl = Integer.toString(Integer.parseInt(serialDiagnosticValues[3].replace("CFL0", ""))/100 ) + "LB/POL2";
+            cfl = Integer.toString(Integer.parseInt(serialDiagnosticValues[3].replace("CFL0", ""))/100 ) + " LB/POL2";
             cac = serialDiagnosticValues[6].replace("CAC0", "") + "A";
             cbc = serialDiagnosticValues[7].replace("CBC0", "") + "A";
         }
