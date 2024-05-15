@@ -289,10 +289,10 @@ public class homeController implements Initializable {
 
     @FXML
     void btnResetAction(ActionEvent event) {
-        updateTimer.cancel();
-        updateTimer.purge();
+        //updateTimer.cancel();
+        //updateTimer.purge();
         serialPortController.sendData(">0689E<");
-        updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
+        //updateTimer.scheduleAtFixedRate(serialPortListener, 0, 100);
 
     }
 
@@ -419,6 +419,7 @@ public class homeController implements Initializable {
     @FXML
     void btnSettingsAction(ActionEvent event) {
         updateTimer.cancel();
+        updateTimer.purge();
         App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnHome.getScene().getWindow());
     }
 
