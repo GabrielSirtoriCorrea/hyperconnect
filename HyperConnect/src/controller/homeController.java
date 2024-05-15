@@ -419,6 +419,7 @@ public class homeController implements Initializable {
     void btnSettingsAction(ActionEvent event) {
         updateTimer.cancel();
         updateTimer.purge();
+        serialPortController.closeSerialPort();
         App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnHome.getScene().getWindow());
     }
 
