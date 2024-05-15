@@ -76,8 +76,8 @@ public class valuesController implements Initializable{
     @FXML
     private Button btnBack;
 
-    private TimerTask serialPortListener, preFlowTask, flowTask;
-    private Runnable updateValues, updateFlowLabel, updatePreFlowLabel;
+    private TimerTask serialPortListener, preFlowTask, flowTask, bombTask;
+    private Runnable updateValues, updateFlowLabel, updatePreFlowLabel, updateBombLabel;
     private SerialPortController serialPortController;
     private String serialStandartResponse, serialNewResponse, serialDiagnosticsResponse;
     private boolean serialStatus;
@@ -198,34 +198,120 @@ public class valuesController implements Initializable{
 
     @FXML
     void btnBackAction(ActionEvent event) {
+        updateTimer.cancel();
+        updateTimer.purge();
+        serialPortController.closeSerialPort();
         App.changeScene(getClass().getResource("/view/homeLayout.fxml"), (Stage) pnValues.getScene().getWindow());
     
     }
 
     @FXML
     void btnBombAction(ActionEvent event) {
+        actionTimer = new Timer();
 
+        if (btnBomb.getText().equals("TESTE PRE FLUXO")) {
+            serialPortController.sendData(">0711C9<");
+            btnBomb.setText("PARAR TESTE PRE FLUXO");
+
+            updateBombLabel = new Runnable() {
+                @Override
+                public void run() {
+                    btnBomb.setText("TESTE PRE FLUXO");
+                }
+            };
+            bombTask = new TimerTask() {
+                @Override
+                public void run() {
+                    serialPortController.sendData(">0710C8<");
+                    System.out.println("5 SEGUNDOS");
+                    Platform.runLater(updateBombLabel);
+                }
+            };
+            actionTimer.schedule(bombTask, 30000);
+
+        } else if (btnBomb.getText().equals("PARAR TESTE PRE FLUXO")) {
+            serialPortController.sendData(">0710C8<");
+            System.out.println("executa");
+            btnBomb.setText("TESTE PRE FLUXO");
+        }
     }
 
     @FXML
     void btnConfigAction(ActionEvent event) {
+        updateTimer.cancel();
+        updateTimer.purge();
+        serialPortController.closeSerialPort();
         App.changeScene(getClass().getResource("/view/passwordLayout.fxml"), (Stage) pnValues.getScene().getWindow());
    
     }
 
     @FXML
     void btnFlowTestAction(ActionEvent event) {
+        actionTimer = new Timer();
+
+        if (btnFlowTest.getText().equals("TESTE FLUXO")) {
+            serialPortController.sendData(">0669C<");
+            btnFlowTest.setText("PARAR TESTE FLUXO");
+
+            updateFlowLabel = new Runnable() {
+                @Override
+                public void run() {
+                    btnFlowTest.setText("TESTE FLUXO");
+                }
+            };
+            flowTask = new TimerTask() {
+                @Override
+                public void run() {
+                    serialPortController.sendData(">0679D<");
+                    System.out.println("5 SEGUNDOS");
+                    Platform.runLater(updateFlowLabel);
+                }
+            };
+            actionTimer.schedule(flowTask, 30000);
+
+        } else if (btnFlowTest.getText().equals("PARAR TESTE FLUXO")) {
+            serialPortController.sendData(">0679D<");
+            System.out.println("executa");
+            btnFlowTest.setText("TESTE FLUXO");
+        }
 
     }
 
     @FXML
     void btnPreFlowTestAction(ActionEvent event) {
+        actionTimer = new Timer();
+
+        if (btnPreFlowtTest.getText().equals("TESTE PRE FLUXO")) {
+            serialPortController.sendData(">0649A<");
+            btnPreFlowtTest.setText("PARAR TESTE PRE FLUXO");
+
+            updatePreFlowLabel = new Runnable() {
+                @Override
+                public void run() {
+                    btnPreFlowtTest.setText("TESTE PRE FLUXO");
+                }
+            };
+            preFlowTask = new TimerTask() {
+                @Override
+                public void run() {
+                    serialPortController.sendData(">0659B<");
+                    System.out.println("5 SEGUNDOS");
+                    Platform.runLater(updatePreFlowLabel);
+                }
+            };
+            actionTimer.schedule(preFlowTask, 30000);
+
+        } else if (btnPreFlowtTest.getText().equals("PARAR TESTE PRE FLUXO")) {
+            serialPortController.sendData(">0679D<");
+            System.out.println("executa");
+            btnPreFlowtTest.setText("TESTE PRE FLUXO");
+        }
 
     }
 
     @FXML
     void btnResetAction(ActionEvent event) {
-
+        serialPortController.sendData(">0689E<");
     }
 
     private void processSerialStandartValues(String serialResponse) {
