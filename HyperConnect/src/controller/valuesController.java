@@ -25,6 +25,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import model.App;
 import model.DatabaseController;
+import model.JsonEditor;
 import model.SerialPortController;
 
 public class valuesController implements Initializable{
@@ -153,9 +154,8 @@ public class valuesController implements Initializable{
                         }
 
                         serialPortController.sendData(">10091<");
-                        serialNewResponse = serialPortController.readData();
-                        // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
-                        // CG0000 CG0000 MV0000 MV0000DE<";
+                        //serialNewResponse = serialPortController.readData();
+                        serialNewResponse = ">100CAT0482 CBT0021 LVO0118 CFL0009 CTP0481 TTP0481 CAC0001 CBC0014 WLC0005 CAS0000 CBS0534 PWMA0000 PWMB00000B<";
                         System.out.println("RESPOSTA>>" + serialNewResponse);
                         if (!serialNewResponse.equals("")) {
                             if (!serialNewResponse.equals(serialDiagnosticsResponse)) {
@@ -176,7 +176,7 @@ public class valuesController implements Initializable{
                         serialPortController.sendData(">00090<");
                         serialNewResponse = serialPortController.readData();
                         System.out.println("TENTANDO COMUNICACAO");
-                        if (serialNewResponse.equals(">000HYPERFORMANCE130AUTO30<")) {
+                    if (serialNewResponse.equals(JsonEditor.readJSON().get("machine").toString())) {
                             serialStatus = true;
                         } else {
                             serialStatus = false;

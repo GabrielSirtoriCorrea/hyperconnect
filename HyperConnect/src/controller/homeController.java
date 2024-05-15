@@ -28,6 +28,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.DatabaseController;
+import model.JsonEditor;
 import model.SerialPortController;
 import model.App;
 
@@ -167,7 +168,7 @@ public class homeController implements Initializable {
                         serialNewResponse = serialPortController.readData();
                         serialResponse = serialNewResponse;
                         System.out.println("TENTANDO COMUNICACAO");
-                        if (serialResponse.equals(">000HYPERFORMANCE130AUTO30<")) {
+                        if (serialResponse.equals(JsonEditor.readJSON().get("machine").toString())) {
                             serialStatus = true;
                         } else {
                             serialStatus = false;
