@@ -73,7 +73,7 @@
             <Insets left="460.0" top="450.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="btnBomb" mnemonicParsing="false" onAction="#btnBombAction" prefHeight="70.0" prefWidth="150.0" styleClass="button-action" text="PARAR TESTE BOMBA" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="btnBomb" mnemonicParsing="false" onAction="#btnBombAction" prefHeight="70.0" prefWidth="150.0" styleClass="button-action" text="TESTE BOMBA" textAlignment="CENTER" wrapText="true" StackPane.alignment="TOP_RIGHT">
          <StackPane.margin>
             <Insets right="30.0" top="150.0" />
          </StackPane.margin>
