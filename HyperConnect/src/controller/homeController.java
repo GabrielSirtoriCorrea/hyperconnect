@@ -106,7 +106,7 @@ public class homeController implements Initializable {
         chkCut.setSelected(true);
         serialStatus = false;
 
-        databaseController = new DatabaseController("./HyperConnect/teste.db");
+        databaseController = new DatabaseController("./hyperconnect/hyperconnect.db");
         databaseController.CreateTables();
         
         //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
@@ -178,7 +178,6 @@ public class homeController implements Initializable {
                 } catch (Exception e) {
                     System.out.println("SEM COMUNICACAO");
                     serialStatus = false;
-
                 }
             }
         };
