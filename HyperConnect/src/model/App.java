@@ -57,8 +57,7 @@ public class App extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.show();
 
-        System.out.println(Base64.getEncoder()
-                .encodeToString(CryptoConverter.encrypt(">000HYPERFORMANCE400XDAUTO30<:01-01-3000")));
+        System.out.println(Base64.getEncoder().encodeToString(CryptoConverter.encrypt(">000HYPERFORMANCE130AUTO30<:01-06-2020")));
 
         expiration = JsonEditor.readJSON().get("expiration");
 
