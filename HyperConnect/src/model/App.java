@@ -4,6 +4,7 @@ import javafx.event.EventHandler;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
@@ -37,10 +38,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLayout = new FXMLLoader(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/homeLayout.fxml"));
+        FXMLLoader fxmlLayout = new FXMLLoader(getClass().getResource("/view/homeLayout.fxml"));
         Parent root = fxmlLayout.load();
         Scene scene = new Scene(root);
-        Image icon = new Image(getClass().getResourceAsStream("/Documents/hyperconnect/HyperConnect/src/view/Resources/Icon.png"));
+        Image icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
 
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("HYPERCONNECT");
@@ -65,8 +66,8 @@ public class App extends Application {
 
             try {
                 popUpAccessKeyStage = new Stage();
-                popupLoader = new FXMLLoader(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/popupAccessKeylayout.fxml"));
-                icon = new Image(getClass().getResourceAsStream("/Documents/hyperconnect/HyperConnect/src/view/Resources/Icon.png"));
+                popupLoader = new FXMLLoader(getClass().getResource("view/popupAccessKeylayout.fxml"));
+                icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
                 popUpAccessKeyStage.getIcons().add(icon);
                 popUpAccessKeyStage.initModality(Modality.APPLICATION_MODAL);
                 popUpAccessKeyStage.setTitle("Licença");
@@ -81,11 +82,12 @@ public class App extends Application {
         } else {
             dateDecrypted = CryptoConverter.decrypt(Base64.getDecoder().decode(expiration.toString()));
             if (LocalDate.parse(dateDecrypted, DateTimeFormatter.ofPattern("dd-MM-yyyy"))
-                    .isBefore(LocalDate.now())) {
+                    .isBefore(LocalDate.now()) || LocalDate.parse(dateDecrypted, DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                    .equals(LocalDate.now())) {
                 try {
                     popUpExpirationTimeStage = new Stage();
-                    popupLoader = new FXMLLoader(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/expirationTimeLayout.fxml"));
-                    icon = new Image(getClass().getResourceAsStream("/Documents/hyperconnect/HyperConnect/src/view/Resources/Icon.png"));
+                    popupLoader = new FXMLLoader(getClass().getResource("/view/expirationTimeLayout.fxml"));
+                    icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
                     popUpExpirationTimeStage.getIcons().add(icon);
                     popUpExpirationTimeStage.initModality(Modality.APPLICATION_MODAL);
                     popUpExpirationTimeStage.setTitle("Licença expirada");
