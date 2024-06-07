@@ -106,7 +106,7 @@ public class homeController implements Initializable {
         chkCut.setSelected(true);
         serialStatus = false;
 
-        databaseController = new DatabaseController("hyperconnect.db");
+        databaseController = new DatabaseController("./Documents/hyperconnect/hyperconnect.db");
         databaseController.CreateTables();
         
         //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
@@ -144,7 +144,7 @@ public class homeController implements Initializable {
                 try {
                     System.out.println(serialStatus);
                     if (serialStatus) {
-                        imgComunication.setImage(new Image("/view/Resources/ONlabelHigh.png"));
+                        imgComunication.setImage(new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/ONlabelHigh.png"));
                         serialPortController.sendData(">079A0<");
                         serialNewResponse = serialPortController.readData();
                         // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
@@ -163,7 +163,7 @@ public class homeController implements Initializable {
                         Platform.runLater(updateValues);
 
                     } else {
-                        imgComunication.setImage(new Image("/view/Resources/OFFlabelHigh.png"));
+                        imgComunication.setImage(new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/OFFlabelHigh.png"));
                         serialPortController.sendData(">00090<");
                         serialNewResponse = serialPortController.readData();
                         serialResponse = serialNewResponse;
@@ -420,7 +420,7 @@ public class homeController implements Initializable {
         updateTimer.cancel();
         updateTimer.purge();
         serialPortController.closeSerialPort();
-        App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnHome.getScene().getWindow());
+        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/valuesLayout.fxml"), (Stage) pnHome.getScene().getWindow());
     }
 
     private void updateGasValue() {
