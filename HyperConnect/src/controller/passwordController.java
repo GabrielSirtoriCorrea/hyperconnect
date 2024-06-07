@@ -47,9 +47,9 @@ public class passwordController implements Initializable {
                                 (Stage) pnPassword.getScene().getWindow());
                     } else {
                         try {
-                            popupLoader = new FXMLLoader(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/popupPasswordlayout.fxml"));
+                            popupLoader = new FXMLLoader(getClass().getResource("/view/popupPasswordlayout.fxml"));
     
-                            icon = new Image(getClass().getResourceAsStream("/Documents/hyperconnect/HyperConnect/src/view/Resources/Icon.png"));
+                            icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
                             // Configura o Stage do pop-up
                             popUp = new Stage();
                             popUp.getIcons().add(icon);
@@ -76,7 +76,7 @@ public class passwordController implements Initializable {
 
     @FXML
     void btnBackAction(ActionEvent event) {
-        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/valuesLayout.fxml"), (Stage) pnPassword.getScene().getWindow());
+        App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnPassword.getScene().getWindow());
     }
 
 }

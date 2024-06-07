@@ -103,7 +103,7 @@ public class valuesController implements Initializable{
         lblDate.setText(formattedDate);
         serialStatus = false;
 
-        databaseController = new DatabaseController("/Documents/hyperconnect/hyperconnect.db");
+        databaseController = new DatabaseController("./hyperconnect.db");
         databaseController.CreateTables();
 
         serialStandartResponse = serialDiagnosticsResponse = "";
@@ -138,7 +138,7 @@ public class valuesController implements Initializable{
                 try {
                     System.out.println(serialStatus);
                     if (serialStatus) {
-                        imgComunication.setImage(new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/ONlabelHigh.png"));
+                        imgComunication.setImage(new Image("/view/Resources/ONlabelHigh.png"));
                         serialPortController.sendData(">079A0<");
                         serialNewResponse = serialPortController.readData();
                         // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
@@ -155,8 +155,8 @@ public class valuesController implements Initializable{
                         }
 
                         serialPortController.sendData(">10091<");
-                        //serialNewResponse = serialPortController.readData();
-                        serialNewResponse = ">100CAT0482 CBT0021 LVO0118 CFL0009 CTP0481 TTP0481 CAC0001 CBC0014 WLC0005 CAS0000 CBS0534 PWMA0000 PWMB00000B<";
+                        serialNewResponse = serialPortController.readData();
+                        //serialNewResponse = ">100CAT0482 CBT0021 LVO0118 CFL0009 CTP0481 TTP0481 CAC0001 CBC0014 WLC0005 CAS0000 CBS0534 PWMA0000 PWMB00000B<";
                         System.out.println("RESPOSTA>>" + serialNewResponse);
                         if (!serialNewResponse.equals("")) {
                             if (!serialNewResponse.equals(serialDiagnosticsResponse)) {
@@ -173,7 +173,7 @@ public class valuesController implements Initializable{
                         Platform.runLater(updateValues);
 
                     } else {
-                        imgComunication.setImage(new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/OFFlabelHigh.png"));
+                        imgComunication.setImage(new Image("/view/Resources/OFFlabelHigh.png"));
                         serialPortController.sendData(">00090<");
                         serialNewResponse = serialPortController.readData();
                         System.out.println("TENTANDO COMUNICACAO");
@@ -202,7 +202,7 @@ public class valuesController implements Initializable{
         updateTimer.cancel();
         updateTimer.purge();
         serialPortController.closeSerialPort();
-        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/homeLayout.fxml"), (Stage) pnValues.getScene().getWindow());
+        App.changeScene(getClass().getResource("/view/homeLayout.fxml"), (Stage) pnValues.getScene().getWindow());
     
     }
 
@@ -242,7 +242,7 @@ public class valuesController implements Initializable{
         updateTimer.cancel();
         updateTimer.purge();
         serialPortController.closeSerialPort();
-        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/passwordLayout.fxml"), (Stage) pnValues.getScene().getWindow());
+        App.changeScene(getClass().getResource("/view/passwordLayout.fxml"), (Stage) pnValues.getScene().getWindow());
    
     }
 

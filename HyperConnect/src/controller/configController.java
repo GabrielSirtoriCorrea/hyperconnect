@@ -62,8 +62,8 @@ public class configController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imageDesactivate = new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/btnDesactivate.png");
-        imageActivate = new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/btnActivate.png");
+        imageDesactivate = new Image( "/view/Resources/btnDesactivate.png");
+        imageActivate = new Image("/view/Resources/btnActivate.png");
 
         machine = JsonEditor.readJSON().get("machine");
         System.out.println("IFS");
@@ -203,7 +203,7 @@ public class configController implements Initializable{
 
     @FXML
     void btnBackAction(ActionEvent event) {
-        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/valuesLayout.fxml"), (Stage) pnConfig.getScene().getWindow());
+        App.changeScene(getClass().getResource("/view/valuesLayout.fxml"), (Stage) pnConfig.getScene().getWindow());
 
     }
 
