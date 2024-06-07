@@ -103,7 +103,7 @@ public class valuesController implements Initializable{
         lblDate.setText(formattedDate);
         serialStatus = false;
 
-        databaseController = new DatabaseController("./HyperConnect/teste.db");
+        databaseController = new DatabaseController("/Documents/hyperconnect/hyperconnect.db");
         databaseController.CreateTables();
 
         serialStandartResponse = serialDiagnosticsResponse = "";
@@ -138,7 +138,7 @@ public class valuesController implements Initializable{
                 try {
                     System.out.println(serialStatus);
                     if (serialStatus) {
-                        imgComunication.setImage(new Image("/view/Resources/ONlabelHigh.png"));
+                        imgComunication.setImage(new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/ONlabelHigh.png"));
                         serialPortController.sendData(">079A0<");
                         serialNewResponse = serialPortController.readData();
                         // serialNewResponse = ">079PC0044 PP0042 SC0034 SP0035 CS0130 ST0000 ER0009
@@ -173,7 +173,7 @@ public class valuesController implements Initializable{
                         Platform.runLater(updateValues);
 
                     } else {
-                        imgComunication.setImage(new Image("/view/Resources/OFFlabelHigh.png"));
+                        imgComunication.setImage(new Image("/Documents/hyperconnect/HyperConnect/src/view/Resources/OFFlabelHigh.png"));
                         serialPortController.sendData(">00090<");
                         serialNewResponse = serialPortController.readData();
                         System.out.println("TENTANDO COMUNICACAO");
@@ -202,7 +202,7 @@ public class valuesController implements Initializable{
         updateTimer.cancel();
         updateTimer.purge();
         serialPortController.closeSerialPort();
-        App.changeScene(getClass().getResource("/view/homeLayout.fxml"), (Stage) pnValues.getScene().getWindow());
+        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/homeLayout.fxml"), (Stage) pnValues.getScene().getWindow());
     
     }
 
@@ -242,7 +242,7 @@ public class valuesController implements Initializable{
         updateTimer.cancel();
         updateTimer.purge();
         serialPortController.closeSerialPort();
-        App.changeScene(getClass().getResource("/view/passwordLayout.fxml"), (Stage) pnValues.getScene().getWindow());
+        App.changeScene(getClass().getResource("/Documents/hyperconnect/HyperConnect/src/view/passwordLayout.fxml"), (Stage) pnValues.getScene().getWindow());
    
     }
 
