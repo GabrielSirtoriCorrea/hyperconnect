@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -56,6 +57,16 @@ public class configController implements Initializable{
     @FXML
     private StackPane pnConfig;
 
+    @FXML
+    private TextField txtBaudrate;
+
+    @FXML
+    private TextField txtStopBit;
+    
+    @FXML
+    private TextField txtMachineHello;
+
+
     private Image imageActivate;
     private Image imageDesactivate;
     private Object machine;
@@ -64,6 +75,10 @@ public class configController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         imageDesactivate = new Image( "/view/Resources/btnDesactivate.png");
         imageActivate = new Image("/view/Resources/btnActivate.png");
+
+        txtBaudrate.setText(JsonEditor.readJSON().get("baudrate").toString());
+        txtStopBit.setText(JsonEditor.readJSON().get("stopBits").toString());
+        txtMachineHello.setText(JsonEditor.readJSON().get("machineHello").toString());
 
         machine = JsonEditor.readJSON().get("machine");
         System.out.println("IFS");
@@ -115,11 +130,14 @@ public class configController implements Initializable{
             btn400Xd.setSelected(false);
 
             JsonEditor.updateJson("machine", ">000HYPERFORMANCE130AUTO30<");
+            JsonEditor.updateJson("machineHello", ">000HYPERFORMANCE130AUTO30<");
+            txtMachineHello.setText(">000HYPERFORMANCE130AUTO30<");
 
 
         }else{
             icon130.setImage(imageDesactivate);
             JsonEditor.updateJson("machine", null);
+            JsonEditor.updateJson("machineHello", null);
         }
 
     }
@@ -137,9 +155,12 @@ public class configController implements Initializable{
             icon400xd.setImage(imageDesactivate);
             btn400Xd.setSelected(false);
             JsonEditor.updateJson("machine", ">000HYPERFORMANCE130XDAUTO30<");
+            JsonEditor.updateJson("machineHello", ">000HYPERFORMANCE130XDAUTO30<");
+            txtMachineHello.setText(">000HYPERFORMANCE130XDAUTO30<");
         }else{
             icon130xd.setImage(imageDesactivate);
             JsonEditor.updateJson("machine", null);
+            JsonEditor.updateJson("machineHello", null);
         }
 
     }
@@ -157,9 +178,13 @@ public class configController implements Initializable{
             icon400xd.setImage(imageDesactivate);
             btn400Xd.setSelected(false);
             JsonEditor.updateJson("machine", ">000HYPERFORMANCE260AUTO30<");
+            JsonEditor.updateJson("machineHello", ">000HYPERFORMANCE260AUTO30<");
+            txtMachineHello.setText(">000HYPERFORMANCE260AUTO30<");
+            
         }else{
             icon260.setImage(imageDesactivate);
             JsonEditor.updateJson("machine", null);
+            JsonEditor.updateJson("machineHello", null);
         }
     }
 
@@ -176,8 +201,12 @@ public class configController implements Initializable{
             icon400xd.setImage(imageDesactivate);
             btn400Xd.setSelected(false);
             JsonEditor.updateJson("machine", ">000HYPERFORMANCE260XDAUTO30<");
+            JsonEditor.updateJson("machineHello", ">000HYPERFORMANCE260XDAUTO30<");
+            txtMachineHello.setText(">000HYPERFORMANCE260XDAUTO30<");
         }else{
             icon260xd.setImage(imageDesactivate);
+            JsonEditor.updateJson("machine", null);
+            JsonEditor.updateJson("machineHello", null);
 
         }
     }
@@ -195,9 +224,12 @@ public class configController implements Initializable{
             btn260Xd.setSelected(false);
             icon400xd.setImage(imageActivate);
             JsonEditor.updateJson("machine", ">000HYPERFORMANCE400XDAUTO30<");
+            JsonEditor.updateJson("machineHello", ">000HYPERFORMANCE400XDAUTO30<");
+            txtMachineHello.setText(">000HYPERFORMANCE400XDAUTO30<");
         }else{
             icon400xd.setImage(imageDesactivate);
             JsonEditor.updateJson("machine", null);
+            JsonEditor.updateJson("machineHello", null);
         }
     }
 
@@ -208,8 +240,10 @@ public class configController implements Initializable{
     }
 
     @FXML
-    void btnSettingsAction(ActionEvent event) {
-
+    void btnSaveSerialConfigs(ActionEvent event) {
+        JsonEditor.updateJson("baudrate", txtBaudrate.getText());
+        JsonEditor.updateJson("stopBits", txtStopBit.getText());
+        JsonEditor.updateJson("machineHello", txtMachineHello.getText());
     }
 
 }
