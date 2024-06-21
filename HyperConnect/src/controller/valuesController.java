@@ -109,7 +109,7 @@ public class valuesController implements Initializable{
         serialStandartResponse = serialDiagnosticsResponse = "";
 
         serialPortController = new SerialPortController();
-        serialPortController.openSerialPort("ttyS0", 9600);
+        serialPortController.openSerialPort("ttyS0", Integer.parseInt(JsonEditor.readJSON().get("baudrate").toString()), Integer.parseInt(JsonEditor.readJSON().get("stopBits").toString()));
 
         updateValues = new Runnable() {
             @Override

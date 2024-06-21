@@ -37,10 +37,11 @@ public class SerialPortController {
         return serialPortsListDescription;
     }
 
-    public boolean openSerialPort(String portName, int baudrate) {
+    public boolean openSerialPort(String portName, int baudrate, int stopBits) {
         serialPort = SerialPort.getCommPort(portName);
         serialPort.flushIOBuffers();
         serialPort.setBaudRate(baudrate);
+        serialPort.setNumStopBits(stopBits);
         serialPort.openPort();
         portOutput = serialPort.getOutputStream();
         portInput = serialPort.getInputStream();

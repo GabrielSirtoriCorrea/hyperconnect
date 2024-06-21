@@ -120,7 +120,8 @@ public class homeController implements Initializable {
         serialResponse = "";
 
         serialPortController = new SerialPortController();
-        serialPortController.openSerialPort("ttyS0", 9600);
+        serialPortController.openSerialPort("ttyS0", Integer.parseInt(JsonEditor.readJSON().get("baudrate").toString()), Integer.parseInt(JsonEditor.readJSON().get("stopBits").toString()));
+        
 
         updateValues = new Runnable() {
             @Override
@@ -168,7 +169,7 @@ public class homeController implements Initializable {
                         serialNewResponse = serialPortController.readData();
                         serialResponse = serialNewResponse;
                         System.out.println("TENTANDO COMUNICACAO");
-                        if (serialResponse.equals(JsonEditor.readJSON().get("machine").toString())) {
+                        if (serialResponse.equals(JsonEditor.readJSON().get("machineHello").toString())) {
                             serialStatus = true;
                         } else {
                             serialStatus = false;

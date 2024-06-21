@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,6 @@
             <Insets top="70.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSettingsAction" style="-fx-background-color: transparent;" StackPane.alignment="BOTTOM_LEFT" />
       <Button fx:id="btnBack" mnemonicParsing="false" onAction="#btnBackAction" style="-fx-background-color: TRANSPARENT; -fx-text-fill: white;" text=" VOLTAR" StackPane.alignment="TOP_LEFT">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -38,27 +38,27 @@
       </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="250.0" left="250.0" />
+            <Insets bottom="150.0" left="20.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 130 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="150.0" left="250.0" />
+            <Insets left="20.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets bottom="150.0" left="250.0" top="100.0" />
+            <Insets left="20.0" top="150.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 260 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets left="250.0" top="50.0" />
+            <Insets left="20.0" top="300.0" />
          </StackPane.margin>
       </Label>
       <Label styleClass="label-text" stylesheets="@Styles.css" text="HPR 400 Xd AUTOGAS" StackPane.alignment="CENTER_LEFT">
          <StackPane.margin>
-            <Insets left="250.0" top="150.0" />
+            <Insets left="20.0" top="450.0" />
          </StackPane.margin>
       </Label>
       <ToggleButton fx:id="btn130" mnemonicParsing="false" onAction="#btn130Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -70,7 +70,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="250.0" left="500.0" />
+            <Insets bottom="150.0" left="230.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn130Xd" mnemonicParsing="false" onAction="#btn130XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -82,7 +82,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="150.0" left="500.0" />
+            <Insets left="230.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn260" mnemonicParsing="false" onAction="#btn260Action" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -94,7 +94,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="50.0" left="500.0" />
+            <Insets left="230.0" top="150.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn260Xd" mnemonicParsing="false" onAction="#btn260XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -106,7 +106,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets left="500.0" top="50.0" />
+            <Insets left="230.0" top="300.0" />
          </StackPane.margin>
       </ToggleButton>
       <ToggleButton fx:id="btn400Xd" mnemonicParsing="false" onAction="#btn400XdAction" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: transparent;" StackPane.alignment="CENTER_LEFT">
@@ -118,7 +118,7 @@
             </ImageView>
          </graphic>
          <StackPane.margin>
-            <Insets bottom="-150.0" left="500.0" />
+            <Insets left="230.0" top="450.0" />
          </StackPane.margin>
       </ToggleButton>
       <ImageView fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
@@ -134,7 +134,7 @@
       </Label>
       <ImageView fx:id="imgComunication" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
          <image>
-            <Image url="@Resources/ON%20label%20high.png" />
+            <Image url="@Resources/OFFlabelHigh.png" />
          </image>
          <StackPane.margin>
             <Insets right="20.0" top="35.0" />
@@ -145,5 +145,40 @@
             <Insets right="10.0" />
          </StackPane.margin>
       </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="Baudrate:">
+         <StackPane.margin>
+            <Insets bottom="280.0" left="300.0" right="150.0" />
+         </StackPane.margin>
+      </Label>
+      <TextField fx:id="txtBaudrate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="70.0" styleClass="text-field">
+         <StackPane.margin>
+            <Insets bottom="280.0" left="320.0" />
+         </StackPane.margin>
+      </TextField>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="Bit de &#10;Parada:" textAlignment="CENTER">
+         <StackPane.margin>
+            <Insets bottom="300.0" left="500.0" />
+         </StackPane.margin>
+      </Label>
+      <Label styleClass="label-text" stylesheets="@Styles.css" text="Machine &#10;Hello:" textAlignment="CENTER" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="300.0" left="20.0" />
+         </StackPane.margin>
+      </Label>
+      <TextField fx:id="txtMachineHello" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="417.0" styleClass="text-field" StackPane.alignment="CENTER_LEFT">
+         <StackPane.margin>
+            <Insets bottom="280.0" left="100.0" />
+         </StackPane.margin>
+      </TextField>
+      <TextField fx:id="txtStopBit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="43.0" styleClass="text-field">
+         <StackPane.margin>
+            <Insets bottom="280.0" left="620.0" />
+         </StackPane.margin>
+      </TextField>
+      <Button mnemonicParsing="false" onAction="#btnSaveSerialConfigs" styleClass="button-action" text="SALVAR">
+         <StackPane.margin>
+            <Insets bottom="280.0" left="850.0" />
+         </StackPane.margin>
+      </Button>
    </children>
 </StackPane>
