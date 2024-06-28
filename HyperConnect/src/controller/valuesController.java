@@ -103,7 +103,7 @@ public class valuesController implements Initializable{
         lblDate.setText(formattedDate);
         serialStatus = false;
 
-        databaseController = new DatabaseController("hyperconnect.db");
+        databaseController = new DatabaseController("/hyperconnect.db");
         databaseController.CreateTables();
 
         serialStandartResponse = serialDiagnosticsResponse = "";
