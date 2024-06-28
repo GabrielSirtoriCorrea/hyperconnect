@@ -96,19 +96,19 @@ public class homeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         date = LocalDate.now();
-        updateTimer = new Timer();
-
+        updateTimer = new Timer();  
+        System.out.println("TESTE 1");
         // Formatar a data
         dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         formattedDate = date.format(dateFormatter);
-
+        System.out.println("TESTE 2");
         lblDate.setText(formattedDate);
         chkCut.setSelected(true);
         serialStatus = false;
-
+        System.out.println("TESTE 3");
         databaseController = new DatabaseController("/hyperconnect.db");
         databaseController.CreateTables();
-        
+        System.out.println("TESTE 4");
         //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
         //databaseController.deleteData("COD_OPERACAO", "ID", "104");
         //Object[][] inserObjects = {{"MATERIAL", "Alumínio"}, {"ESPESSURA", 25}, {"CORRENTE", 400}, {"GAS_CORTAR", "N2/AR"}, {"GAS_MARCAR", "N2/N2"}, {"COD_CORTAR", ">05826035< >0966 52A< >07870 31 30 50 00 0092<"}, {"COD_MARCAR", ">05802231<  >0966 62B< >07810 10 10 10 00 0083<"}};
@@ -118,7 +118,8 @@ public class homeController implements Initializable {
         cmbThickness.setOnShowing(event -> btnThicknessListAction());
         cmbCurrent.setOnShowing(event -> btnCurrentListAction());
         serialResponse = "";
-
+        
+        System.out.println("TESTE 5");
         serialPortController = new SerialPortController();
         serialPortController.openSerialPort("ttyS0", Integer.parseInt(JsonEditor.readJSON().get("baudrate").toString()), Integer.parseInt(JsonEditor.readJSON().get("stopBits").toString()));
         
@@ -138,7 +139,7 @@ public class homeController implements Initializable {
             }
 
         };
-
+        
         serialPortListener = new TimerTask() {
             @Override
             public void run() {
