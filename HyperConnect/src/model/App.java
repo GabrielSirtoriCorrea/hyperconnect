@@ -38,10 +38,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader fxmlLayout = new FXMLLoader(getClass().getResource("/view/homeLayout.fxml"));
+        FXMLLoader fxmlLayout = new FXMLLoader(getClass().getResource("./view/homeLayout.fxml"));
         Parent root = fxmlLayout.load();
         Scene scene = new Scene(root);
-        Image icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
+        Image icon = new Image(getClass().getResourceAsStream("./view/Resources/Icon.png"));
 
         primaryStage.getIcons().add(icon);
         primaryStage.setTitle("HYPERCONNECT");
@@ -66,7 +66,7 @@ public class App extends Application {
 
             try {
                 popUpAccessKeyStage = new Stage();
-                popupLoader = new FXMLLoader(getClass().getResource("view/popupAccessKeylayout.fxml"));
+                popupLoader = new FXMLLoader(getClass().getResource("/view/popupAccessKeylayout.fxml"));
                 icon = new Image(getClass().getResourceAsStream("/view/Resources/Icon.png"));
                 popUpAccessKeyStage.getIcons().add(icon);
                 popUpAccessKeyStage.initModality(Modality.APPLICATION_MODAL);
