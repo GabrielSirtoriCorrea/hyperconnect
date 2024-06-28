@@ -106,7 +106,7 @@ public class homeController implements Initializable {
         chkCut.setSelected(true);
         serialStatus = false;
         System.out.println("TESTE 3");
-        databaseController = new DatabaseController("/hyperconnect.db");
+        databaseController = new DatabaseController("./hyperconnect.db");
         databaseController.CreateTables();
         System.out.println("TESTE 4");
         //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
@@ -139,7 +139,7 @@ public class homeController implements Initializable {
             }
 
         };
-        
+
         serialPortListener = new TimerTask() {
             @Override
             public void run() {
