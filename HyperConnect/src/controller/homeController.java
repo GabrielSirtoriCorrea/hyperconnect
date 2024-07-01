@@ -106,7 +106,7 @@ public class homeController implements Initializable {
         chkCut.setSelected(true);
         serialStatus = false;
         System.out.println("TESTE 3");
-        databaseController = new DatabaseController("./hyperconnect/hyperconnect.db");
+        databaseController = new DatabaseController("./HyperConnect/hyperconnect.db");
         databaseController.CreateTables();
         System.out.println("TESTE 4");
         //Object[][] inserObjects = {{"MATERIAL", "Aço Carbono"}};
