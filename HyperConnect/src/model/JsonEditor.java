@@ -9,7 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class JsonEditor {
-    private static final String FILE_NAME = "configs.json";
+    private static final String FILE_NAME = "./configs.json";
 
     public static void writeJSON(JSONObject jsonObject) {
         try (FileWriter fileWriter = new FileWriter(FILE_NAME)) {
